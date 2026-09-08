@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="مركز NOORAN — طب وجراحة العيون برؤية أكثر دقة ورعاية متكاملة.">
+  <title>NOORAN — طب وجراحة العيون</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Manrope:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="N.css">
+</head>
+
+<body>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor-label" id="cursorLabel"></div>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <svg viewBox="0 0 400 100">
+      <!-- N -->
+      <text x="10" y="70" font-family="Cormorant Garamond" font-size="65" class="logo-text">N</text>
+      
+      <!-- OO (GOLD EYES) -->
+      <ellipse cx="110" cy="52" rx="30" ry="15" class="eye-gold"></ellipse>
+      <circle cx="110" cy="52" r="5" class="dot-gold"></circle>
+
+      <ellipse cx="180" cy="52" rx="30" ry="15" class="eye-gold"></ellipse>
+      <circle cx="180" cy="52" r="5" class="dot-gold"></circle>
+
+      <!-- RAN -->
+      <text x="235" y="70" font-family="Cormorant Garamond" font-size="65" class="logo-text">RAN</text>
+    </svg>
+    <p>طب وجراحة العيون المتقدمة</p>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="#top" class="brand">
+      N<span class="brand-eyes"><i></i><i></i></span>RAN
+    </a>
+
+    <div class="desktop-menu">
+      <a href="#about">فلسفتنا</a>
+      <a href="#expertise">التخصصات</a>
+      <a href="#doctor">د. نوران</a>
+      <a href="#anatomy">التشريح التفاعلي</a>
+      <a href="#technology">التقنيات</a>
+      <a href="#faq">الأسئلة الشائعة</a>
+      <a href="#contact">التواصل</a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-btn" id="langBtn">EN</button>
+      <button class="booking-btn" data-open-booking>حجز موعد</button>
+      <div class="menu-toggle" id="menuToggle">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">فلسفتنا</a>
+    <a href="#expertise">التخصصات</a>
+    <a href="#doctor">د. نوران</a>
+    <a href="#technology">التقنيات</a>
+    <a href="#contact">التواصل</a>
+    <button class="booking-btn" data-open-booking style="margin-top:20px;">حجز موعد الآن</button>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="top">
+    <div class="hero-content reveal">
+      <span class="eyebrow">رؤية أصفى.. لحياة أجمل</span>
+      <div class="hero-title-logo brand">
+        N<span class="hero-eyes"><i></i><i></i></span>RAN
+      </div>
+      <h1>دقة متناهية في طب وجراحة العيون</h1>
+      <p class="hero-arabic-desc">
+        نجمع بين الخبرة الطبية الرفيعة وأحدث تقنيات الفيمتو سيلك والتصوير الطبقي لتقديم أفضل مستوى من الرعاية البصرية المخصصة لك.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="booking-btn" data-open-booking>حجز موعد استشارة</button>
+        <a href="#expertise" class="lang-btn" style="padding:12px 20px;">استكشف خدماتنا</a>
+      </div>
+    </div>
+
+    <div class="hero-visual" id="heroVisual">
+      <div class="abstract-eye">
+        <div class="iris">
+          <div class="pupil"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="section-light" id="about">
+    <div class="container grid-2 reveal">
+      <div>
+        <span class="section-label">فلسفة الرعاية</span>
+        <h2>العين نافذتك للعالم، ورعايتها شغفنا الأول</h2>
+      </div>
+      <div>
+        <p class="body-text" style="color:#444;">
+          في مركز <strong>NOORAN</strong>، نؤمن بأن كل عين تشكل حالة فريدة تتطلب فحصاً تشخيصياً دقيقاً وخطة علاجية تناسب نمط حياتك. نستخدم أحدث الابتكارات لضمان أعلى درجات الأمان والراحة.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTISE SECTION -->
+  <section class="section-dark" id="expertise">
+    <div class="container reveal">
+      <div class="section-heading">
+        <span class="eyebrow">خدماتنا الطبية</span>
+        <h2>تخصصاتنا الدقيقة</h2>
+      </div>
+
+      <div class="expertise-list" style="margin-top: 40px;">
+        <div class="expertise-item">
+          <span class="exp-num">٠١</span>
+          <h3>تصحيح النظر بالليزر والفيمتو سيلك</h3>
+          <span class="eyebrow">LASIK & Femto-Smile</span>
+        </div>
+        <div class="expertise-item">
+          <span class="exp-num">٠٢</span>
+          <h3>جراحة المياه البيضاء وزراعة العدسات الذكية</h3>
+          <span class="eyebrow">Cataract Surgery</span>
+        </div>
+        <div class="expertise-item">
+          <span class="exp-num">٠٣</span>
+          <h3>علاج وجراحة المياه الزرقاء (الجلوكوما)</h3>
+          <span class="eyebrow">Glaucoma Treatment</span>
+        </div>
+        <div class="expertise-item">
+          <span class="exp-num">٠٤</span>
+          <h3>علاج أمراض الشبكية والجسم الزجاجي</h3>
+          <span class="eyebrow">Retina & Vitreous</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCTOR SECTION -->
+  <section class="section-navy" id="doctor">
+    <div class="container grid-2 reveal">
+      <div>
+        <span class="eyebrow">عن الطبيبة</span>
+        <h2>د. نوران</h2>
+        <p class="eyebrow" style="color:var(--gold);">استشاري طب وجراحة العيون والفيزياء البصرية</p>
+        <p class="body-text">
+          تمتلك د. نوران خبرة طويلة في إجراء أحدث جراحات تصحيح النظر والمياه البيضاء باستخدام الأجهزة الميكروسكوبية الدقيقة، وتشارك في المؤتمرات الدولية لنقل أحدث ابتكارات طب العيون لمرضاها.
+        </p>
+      </div>
+      <div class="card" style="text-align: center; padding: 50px;">
+        <div class="brand" style="font-size: 60px; margin-bottom: 20px;">
+          N<span class="brand-eyes"><i></i><i></i></span>RAN
+        </div>
+        <p>خبرة تزيد عن ١٥ عاماً في تصحيح البصر</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANATOMY INTERACTIVE -->
+  <section class="section-black" id="anatomy">
+    <div class="container reveal">
+      <div class="section-heading" style="text-align: center;">
+        <span class="eyebrow">التشريح التفاعلي</span>
+        <h2>تعرف على أجزاء عينك</h2>
+      </div>
+
+      <div class="anatomy-eye">
+        <div class="hotspot active" style="top:30%; left:30%;" data-title="القرنية (Cornea)" data-description="الطبقة الشفافة الأمامية للعين التي تقوم بكسر الضوء وتجميعه للرؤية الواضحة.">١</div>
+        <div class="hotspot" style="top:50%; left:50%;" data-title="القزحية والحدقة (Iris & Pupil)" data-description="الجزء الملون الذي يتحكم في كمية الضوء الداخلة إلى العين عبر انقباض الحدقة وانبساطها.">٢</div>
+        <div class="hotspot" style="top:70%; left:75%;" data-title="الشبكية (Retina)" data-description="الطبقة الحساسة للضوء في الجزء الخلفي للعين والتي ترسل الإشارات البصرية إلى الدماغ.">٣</div>
+      </div>
+
+      <div class="eye-info-box" id="eyeInfoBox">
+        <h3 id="eyeTitle" style="color:var(--gold); margin-bottom: 10px;">القرنية (Cornea)</h3>
+        <p id="eyeDesc" style="color:#aaa;">الطبقة الشفافة الأمامية للعين التي تقوم بكسر الضوء وتجميعه للرؤية الواضحة.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="section-dark" id="faq">
+    <div class="container reveal">
+      <div class="section-heading">
+        <span class="eyebrow">الأسئلة الشائعة</span>
+        <h2>إجابات لأسئلتك</h2>
+      </div>
+
+      <div style="margin-top: 30px;">
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>هل عملية تصحيح النظر بالفيمتو سيلك مؤلمة؟</span>
+            <span class="gold">+</span>
+          </div>
+          <div class="faq-a">
+            <p>العملية غير مؤلمة تماماً حيث يتم استخدام قطرات مخدرة موضعية للعين، وتستغرق دقائق معدودة فقط.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>متى يمكنني العودة للعمل بعد العملية؟</span>
+            <span class="gold">+</span>
+          </div>
+          <div class="faq-a">
+            <p>يمكن لمعظم المرضى العودة لممارسة حياتهم الطبيعية والعمل خلال 24 إلى 48 ساعة بعد العملية حسب تعليمات الطبيب.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="section-navy" id="contact">
+    <div class="container grid-2 reveal">
+      <div>
+        <span class="eyebrow">تواصل معنا</span>
+        <h2>يسعدنا استقبالك في مركزنا</h2>
+        <p class="body-text">احجز موعدك الآن للحصول على استشارة شمولية وصحة بصرية أفضل.</p>
+      </div>
+
+      <div class="card">
+        <h3>معلومات العيادة</h3>
+        <p style="margin-bottom: 10px;">📍 العنوان:السعوديه, الرياض  </p>
+        <p style="margin-bottom: 10px;">📞 الهاتف: +20 100 000 0000</p>
+        <p style="margin-bottom: 20px;">⏰ ساعات العمل: يومياً من 4 مساءً حتى 10 مساءً</p>
+        <button class="booking-btn" data-open-booking style="width:100%;">احجز موعدك الان</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand brand">
+        N<span class="brand-eyes"><i></i><i></i></span>RAN
+      </div>
+      <p style="color:#888;">جميع الحقوق محفوظة © 2026 مركز NOORAN لطب وجراحة العيون.</p>
+    </div>
+    <div class="footer-bottom">
+      <span>تصميم وتطوير برؤية حديثة</span>
+      <a href="#top" style="color:var(--gold);">العودة للأعلى ↑</a>
+    </div>
+  </footer>
+
+  <!-- BOOKING MODAL -->
+  <div class="modal" id="bookingModal">
+    <div class="booking-modal">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <h2>حجز موعد استشارة</h2>
+      <form id="bookingForm">
+        <label>الاسم الكامل</label>
+        <input type="text" required placeholder="أدخل اسمك الكريم">
+
+        <label>رقم الهاتف</label>
+        <input type="tel" required placeholder="010xxxxxxxx">
+
+        <label>نوع الخدمة المطلوبة</label>
+        <select>
+          <option>تصحيح النظر (الفيمتو سيلك / الليزك)</option>
+          <option>جراحة المياه البيضاء</option>
+          <option>فحص عين شامل</option>
+          <option>استشارة أخرى</option>
+        </select>
+
+        <button type="submit" class="booking-btn" style="width: 100%; margin-top: 10px;">تأكيد الحجز</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="N.js"></script>
+</body>
+</html>

@@ -1,0 +1,749 @@
+/* =====================================================
+   NOORAN — PREMIUM OPHTHALMOLOGY WEBSITE
+   ===================================================== */
+
+:root {
+  --black: #050608;
+  --black-2: #090b10;
+  --navy: #0b1220;
+  --navy-2: #111c30;
+
+  --ivory: #f1eee6;
+  --white: #ffffff;
+
+  --gold: #c5a568;
+  --gold-light: #dfc58c;
+
+  --gray: #92959c;
+  --dark-gray: #555960;
+
+  --line-dark: rgba(255, 255, 255, 0.12);
+  --line-light: rgba(0, 0, 0, 0.13);
+
+  --serif: "Cormorant Garamond", serif;
+  --sans: "Manrope", sans-serif;
+  --arabic: "IBM Plex Sans Arabic", sans-serif;
+}
+
+/* =====================================================
+   RESET & BASE
+   ===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--black);
+}
+
+body {
+  background: var(--black);
+  color: var(--ivory);
+  font-family: var(--arabic);
+  overflow-x: hidden;
+  direction: rtl;
+  text-align: right;
+  line-height: 1.7;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =====================================================
+   FIX LOGO DIRECTION (ALWAYS NOORAN LTR) & GOLD OO
+   ===================================================== */
+
+.brand,
+.logo,
+.mobile-logo,
+.footer-brand,
+.footer-logo,
+.loader-logo {
+  direction: ltr !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  font-family: var(--serif);
+  letter-spacing: 0.08em;
+  unicode-bidi: isolate;
+  color: var(--white);
+}
+
+.brand-eyes,
+.logo-eyes,
+.mini-eyes,
+.cta-eyes,
+.hero-eyes {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 4px;
+  margin: 0 5px;
+  direction: ltr !important;
+}
+
+/* OO Eyes styled with Gold */
+.brand-eyes i,
+.logo-eyes i,
+.mini-eyes i,
+.cta-eyes i,
+.hero-eyes i {
+  width: 18px;
+  height: 11px;
+  border: 1px solid var(--gold) !important;
+  border-radius: 70% 0;
+  transform: rotate(45deg);
+  position: relative;
+  display: block;
+}
+
+.brand-eyes i::after,
+.logo-eyes i::after,
+.mini-eyes i::after,
+.cta-eyes i::after,
+.hero-eyes i::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--gold) !important;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* =====================================================
+   GENERAL UTILITIES & SECTIONS
+   ===================================================== */
+
+.container {
+  width: min(1200px, 86vw);
+  margin: auto;
+}
+
+.section-dark,
+.section-black,
+.section-navy {
+  color: var(--white);
+}
+
+.section-light {
+  background: var(--ivory);
+  color: var(--black);
+}
+
+.section-black {
+  background: var(--black);
+}
+
+.section-navy {
+  background: radial-gradient(
+      circle at 80% 20%,
+      rgba(47, 69, 105, 0.28),
+      transparent 35%
+    ),
+    var(--navy);
+}
+
+.eyebrow,
+.section-label {
+  font-family: var(--arabic);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.body-text {
+  max-width: 620px;
+  color: #92959c;
+  font-size: 15px;
+  line-height: 2.1;
+}
+
+/* =====================================================
+   LOADER
+   ===================================================== */
+
+.loader {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: var(--black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loader.done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader svg {
+  width: min(400px, 85vw);
+  overflow: visible;
+  direction: ltr;
+}
+
+.loader .logo-text {
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 0.8;
+}
+
+.loader .eye-gold {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.2;
+}
+
+.loader .dot-gold {
+  fill: var(--gold);
+}
+
+.loader p {
+  margin-top: 15px;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+}
+
+/* =====================================================
+   NAVBAR
+   ===================================================== */
+
+.navbar {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  padding: 0 7vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: height 0.4s ease, background 0.4s ease, border-color 0.4s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.navbar.scrolled {
+  height: 72px;
+  background: rgba(5, 6, 8, 0.85);
+  backdrop-filter: blur(16px);
+  border-color: var(--line-dark);
+}
+
+.brand {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.desktop-menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.desktop-menu a {
+  font-size: 13px;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+.desktop-menu a:hover,
+.desktop-menu a.active {
+  color: var(--gold);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lang-btn {
+  border: 1px solid rgba(197, 165, 104, 0.4);
+  color: var(--gold);
+  padding: 6px 14px;
+  font-size: 11px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.lang-btn:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.booking-btn {
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: var(--black);
+  padding: 12px 24px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.booking-btn:hover {
+  background: transparent;
+  color: var(--gold);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 2px;
+  background: var(--gold);
+}
+
+/* =====================================================
+   MOBILE MENU
+   ===================================================== */
+
+.mobile-menu {
+  position: fixed;
+  z-index: 900;
+  inset: 0;
+  background: var(--black);
+  transform: translateY(-100%);
+  transition: transform 0.6s cubic-bezier(0.7, 0, 0.2, 1);
+  padding: 110px 8vw 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+}
+
+.mobile-menu a {
+  font-size: 20px;
+  color: #ccc;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+/* =====================================================
+   HERO
+   ===================================================== */
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  padding: 130px 7vw 80px;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title-logo {
+  font-size: clamp(60px, 8vw, 110px);
+  line-height: 0.9;
+  margin: 15px 0;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.hero-arabic-desc {
+  font-size: 16px;
+  color: #b0b4bc;
+  max-width: 580px;
+  margin-bottom: 35px;
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-visual {
+  position: relative;
+  height: 550px;
+  display: grid;
+  place-items: center;
+}
+
+.abstract-eye {
+  position: relative;
+  width: min(420px, 80vw);
+  aspect-ratio: 1 / 0.6;
+  border: 1px solid rgba(197, 165, 104, 0.5);
+  border-radius: 70% 0;
+  transform: rotate(45deg);
+  box-shadow: 0 0 60px rgba(197, 165, 104, 0.08);
+  animation: eyeFloat 6s ease-in-out infinite;
+}
+
+.iris {
+  position: absolute;
+  width: 45%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  background: radial-gradient(
+    circle,
+    #020306 0%,
+    #16243a 30%,
+    #c5a568 55%,
+    #08101d 100%
+  );
+}
+
+.pupil {
+  position: absolute;
+  width: 30%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #000;
+}
+
+@keyframes eyeFloat {
+  0%, 100% { transform: rotate(45deg) translateY(0); }
+  50% { transform: rotate(45deg) translateY(-12px); }
+}
+
+/* =====================================================
+   SECTIONS & GRID
+   ===================================================== */
+
+section {
+  padding: 120px 8vw;
+  position: relative;
+}
+
+.section-heading h2 {
+  font-size: clamp(34px, 4.5vw, 64px);
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* Cards */
+.card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--line-dark);
+  padding: 30px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+
+.card h3 {
+  font-size: 22px;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #a0a4ac;
+  font-size: 14px;
+}
+
+/* =====================================================
+   EXPERTISE LIST
+   ===================================================== */
+
+.expertise-item {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  align-items: center;
+  padding: 28px 0;
+  border-top: 1px solid var(--line-dark);
+  transition: 0.3s;
+}
+
+.expertise-item:last-child {
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.expertise-item:hover {
+  padding-right: 15px;
+}
+
+.exp-num {
+  color: var(--gold);
+  font-size: 16px;
+}
+
+.expertise-item h3 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+/* =====================================================
+   ANATOMY INTERACTIVE
+   ===================================================== */
+
+.anatomy-eye {
+  position: relative;
+  width: min(600px, 90vw);
+  height: 300px;
+  border: 1px solid rgba(197, 165, 104, 0.4);
+  border-radius: 70% 0;
+  margin: 40px auto;
+  background: radial-gradient(ellipse at center, rgba(20, 39, 66, 0.6), transparent);
+}
+
+.hotspot {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  background: rgba(5, 6, 8, 0.8);
+  color: var(--gold);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+}
+
+.hotspot:hover,
+.hotspot.active {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.eye-info-box {
+  background: rgba(11, 18, 32, 0.9);
+  border: 1px solid var(--line-dark);
+  padding: 25px;
+  border-radius: 6px;
+  max-width: 500px;
+  margin: 20px auto 0;
+  text-align: center;
+}
+
+/* =====================================================
+   FAQ ACCORDION
+   ===================================================== */
+
+.faq-item {
+  border-top: 1px solid var(--line-dark);
+  padding: 20px 0;
+}
+
+.faq-q {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  color: #92959c;
+  font-size: 14px;
+}
+
+.faq-item.open .faq-a {
+  max-height: 200px;
+  padding-top: 12px;
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.footer {
+  padding: 70px 8vw 30px;
+  border-top: 1px solid var(--line-dark);
+  background: var(--black-2);
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.footer-brand {
+  font-size: 48px;
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--line-dark);
+  padding-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  color: #656970;
+  font-size: 12px;
+}
+
+/* =====================================================
+   MODAL
+   ===================================================== */
+
+.modal {
+  position: fixed;
+  z-index: 5000;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+}
+
+.modal.open {
+  display: flex;
+}
+
+.booking-modal {
+  background: var(--ivory);
+  color: var(--black);
+  padding: 45px;
+  width: min(600px, 100%);
+  border-radius: 4px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  font-size: 28px;
+  color: var(--black);
+}
+
+.booking-modal h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+.booking-modal input,
+.booking-modal select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  background: #fff;
+  outline: none;
+}
+
+/* =====================================================
+   CURSOR & REVEAL
+   ===================================================== */
+
+.cursor-label {
+  position: fixed;
+  z-index: 9998;
+  width: 65px;
+  height: 65px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.2s;
+  font-size: 11px;
+  color: var(--gold);
+  background: rgba(5, 6, 8, 0.7);
+}
+
+.cursor-label.show {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 992px) {
+  .desktop-menu { display: none; }
+  .menu-toggle { display: flex; }
+  .hero, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .hero-visual { height: 380px; }
+  section { padding: 80px 7vw; }
+}
